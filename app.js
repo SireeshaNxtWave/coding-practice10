@@ -45,7 +45,7 @@ const authenticateToken = (request, response, next) => {
   } else {
     jwt.verify(jwtToken, "MY_SECRET_TOKEN", async (error, payLoad) => {
       if (error) {
-        response.status(400);
+        response.status(401);
         response.send("Invalid JWT Token");
       } else {
         next();
